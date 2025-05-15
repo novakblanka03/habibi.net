@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser');
 
-const inputFolder = path.join(__dirname, 'Evnat');
+const inputFolder = path.join(__dirname, 'cleaned-Bac');
 
 fs.readdir(inputFolder, (err, files) => {
     if (err) {
