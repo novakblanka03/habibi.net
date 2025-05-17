@@ -6,13 +6,21 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
+    <Color x:Key="BACKGROUND_COLOR">#1A1B22</Color>
+    <Color x:Key="CARDS_COLOR">#FF242833</Color>
+    <Color x:Key="DARK_GREEN_LETTER_COLOR">#FF8AD195</Color>
+    <Color x:Key="LIGHT_GREEN_COLOR">#FFCDFBCC</Color>
+    <Color x:Key="GREY_LETTER_COLOR">#FF0D1220</Color>
+    <Color x:Key="LIGHT_GREY_COLOR">#FF676D75</Color>
+    
+    
     <Color x:Key="Primary">#512BD4</Color>
     <Color x:Key="PrimaryDark">#ac99ea</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
-
+    
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Magenta">#D600AA</Color>

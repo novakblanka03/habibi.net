@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "99135605345",
+    "firebase_url": "https://peda-project-d66ec-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "peda-project-d66ec",
+    "storage_bucket": "peda-project-d66ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99135605345:android:43142d8b09e31cb5f77820",
+        "android_client_info": {
+          "package_name": "Tetelezz.net"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXquVQ90tL3o4yzM2QCtDNkD_XYMzikhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

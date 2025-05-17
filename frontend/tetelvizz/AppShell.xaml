@@ -1,15 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <Shell
     x:Class="tetelvizz.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:tetelvizz"
-    Shell.FlyoutBehavior="Flyout"
+    xmlns:views="clr-namespace:tetelvizz.View"
+    Shell.FlyoutBehavior="Disabled"
     Title="tetelvizz">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellContent Route="LoginView" ContentTemplate="{DataTemplate views:LoginView}" />
+    <ShellContent Route="RegisterView" ContentTemplate="{DataTemplate views:RegisterView}" />
+
+    <TabBar Route="TabNavigator">
+        <Tab Title="Home" Icon="home_icon.png">
+            <ShellContent Route="HomeView" ContentTemplate="{DataTemplate views:HomeView}" />
+        </Tab>
+        <Tab Title="Profile" Icon="user_icon.png">
+            <ShellContent Route="ProfileView" ContentTemplate="{DataTemplate views:ProfileView}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

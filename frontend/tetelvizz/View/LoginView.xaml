@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:tetelvizz.ViewModel"
+             x:Class="tetelvizz.View.LoginView"
+             Title="Login"
+             BackgroundColor="{StaticResource BACKGROUND_COLOR}"
+             x:DataType="viewModel:LoginViewModel"
+             Shell.NavBarIsVisible="False">
+    <VerticalStackLayout Padding="25" Spacing="20">
+        <VerticalStackLayout>
+            <Label Text="Bejelentkezés"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource DARK_GREEN_LETTER_COLOR}"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <Entry Placeholder="Írd be az email címed"
+               Keyboard="Email"
+               Text="{Binding Email}"
+               TextColor="{StaticResource White}"
+               PlaceholderColor="Gray"
+               BackgroundColor="Transparent" />
+
+        <Entry Placeholder="Írd be a jelszavad"
+               IsPassword="True"
+               Text="{Binding Password}"
+               TextColor="{StaticResource White}"
+               PlaceholderColor="Gray"
+               BackgroundColor="Transparent" />
+
+        <Button Text="Bejelentkezés"
+                Command="{Binding LoginCommand}"
+                BackgroundColor="{StaticResource DARK_GREEN_LETTER_COLOR}"
+                TextColor="{StaticResource Black}"
+                CornerRadius="5" />
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Nincs még fiókod?" TextColor="{StaticResource White}" />
+            <Label Text=" Regisztrálj"
+                   TextColor="{StaticResource DARK_GREEN_LETTER_COLOR}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToRegisterCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>

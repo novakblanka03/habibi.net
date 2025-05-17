@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:tetelvizz.Components"
+             xmlns:viewModel="clr-namespace:tetelvizz.ViewModel"
+             x:DataType="viewModel:ProfileViewModel"
+             x:Class="tetelvizz.View.ProfileView">
+    <StackLayout>
+        <components:CustomHeader />
+        <Label Text="Username:" FontSize="Medium" />
+        <Label Text="{Binding Username}" FontSize="Large" FontAttributes="Bold" />
+    </StackLayout>
+</ContentPage>

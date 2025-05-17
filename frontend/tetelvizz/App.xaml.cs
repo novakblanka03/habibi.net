@@ -1,4 +1,8 @@
-﻿namespace tetelvizz;
+﻿using Firebase.Auth;
+using tetelvizz.View;
+using tetelvizz.ViewModel;
+
+namespace tetelvizz;
 
 public partial class App : Application
 {
@@ -9,6 +13,11 @@ public partial class App : Application
 
     protected override Window CreateWindow(IActivationState? activationState)
     {
-        return new Window(new AppShell());
+        var shell = new AppShell();
+        var window = new Window(shell);
+
+        shell.Dispatcher.Dispatch(async () => { await Shell.Current.GoToAsync("//LoginView"); });
+
+        return window;
     }
 }
