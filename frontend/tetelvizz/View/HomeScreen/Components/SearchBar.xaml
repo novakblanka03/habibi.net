@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tetelvizz.View.HomeScreen.Components.SearchBar">
+    <Frame BackgroundColor="#1E1E24"
+           CornerRadius="12"
+           Padding="12"
+           HasShadow="False"
+           Margin="16,0"
+           HeightRequest="48">
+        <Grid ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Search Icon -->
+            <Image Source="search.png"
+                   WidthRequest="20"
+                   HeightRequest="20"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+
+            <!-- Input Field -->
+            <Entry Grid.Column="1"
+                   Placeholder="Keresés..."
+                   PlaceholderColor="#A1A1AA"
+                   TextColor="White"
+                   FontSize="14"
+                   BackgroundColor="Transparent"
+                   VerticalOptions="Center" />
+        </Grid>
+    </Frame>
+</ContentView>

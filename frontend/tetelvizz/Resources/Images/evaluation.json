@@ -1,0 +1,192 @@
+{
+    "partA": {
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "correctAnswer": "1855, Humulești",
+          "suggestion": "Helyes válasz",
+          "score": {
+            "value": 2,
+            "max": 2
+          }
+        },
+        {
+          "taskNumber": 2,
+          "correctAnswer": "c",
+          "suggestion": "Helyes válasz",
+          "score": {
+            "value": 2,
+            "max": 2
+          }
+        },
+        {
+          "taskNumber": 3,
+          "correctAnswer": "b",
+          "suggestion": "Helyes válasz",
+          "score": {
+            "value": 2,
+            "max": 2
+          }
+        },
+        {
+          "taskNumber": 4,
+          "correctAnswer": "d",
+          "suggestion": "Helyes válasz: d (c helyett)",
+          "score": {
+            "value": 0,
+            "max": 2
+          }
+        },
+        {
+          "taskNumber": 5,
+          "textEvaluations": [
+            {
+              "text": "Textul 1",
+              "answers": [
+                "1. Adevărat (helyes)",
+                "2. Fals (helyes)",
+                "3. Fals (helyes)"
+              ],
+              "suggestion": "Minden válasz helyes"
+            },
+            {
+              "text": "Textul 2",
+              "answers": [
+                "1. Fals (helyes)",
+                "2. Fals (helyes)",
+                "3. Fals (helyes)"
+              ],
+              "suggestion": "Minden válasz helyes"
+            }
+          ],
+          "score": {
+            "value": 6,
+            "max": 6
+          }
+        },
+        {
+          "taskNumber": 6,
+          "correctAnswer": "Înțelept, caracterizare indirectă, prin fapte (Exemplu: 'Dar eu mă lupt cu gândul cum să-i port de cheltuială, căci banii nu se culeg de la trunchiu, ca surcelele').",
+          "score": {
+            "value": 6,
+            "max": 6
+          }
+        },
+        {
+          "taskNumber": 7,
+          "correctAnswer": "Textul 1 - limbaj popular, expresiv. Textul 2 - limbaj specializat, utilizarea termenilor științifici.",
+          "score": {
+            "value": 6,
+            "max": 6
+          }
+        },
+        {
+          "taskNumber": 8,
+          "correctAnswer": "Răspuns justificat prin referire la una dintre emoțiile prezente în text și o secvență relevantă.",
+          "score": {
+            "value": 6,
+            "max": 6
+          }
+        },
+        {
+          "taskNumber": 9,
+          "correctAnswer": "Valoare comună: educația. Text asociat: 'Harap Alb' de Ion Creangă. Justificare prin referire la secvențe relevante.",
+          "score": {
+            "value": 6,
+            "max": 6
+          }
+        }
+      ],
+      "totalScore": {
+        "available": 38,
+        "obtained": 36
+      }
+    },
+    "partB": {
+      "provided": true,
+      "tasks": [
+        {
+          "taskNumber": 1,
+          "correctAnswer": "b",
+          "score": {
+            "value": 2,
+            "max": 2
+          }
+        },
+        {
+          "taskNumber": 2,
+          "correctAnswer": "c",
+          "score": {
+            "value": 2,
+            "max": 2
+          }
+        },
+        {
+          "taskNumber": 3,
+          "correctAnswer": "d",
+          "score": {
+            "value": 2,
+            "max": 2
+          }
+        },
+        {
+          "taskNumber": 4,
+          "correctAnswer": "c",
+          "score": {
+            "value": 2,
+            "max": 2
+          }
+        },
+        {
+          "taskNumber": 5,
+          "correctAnswer": [
+            {"verb": "a spune", "form": "infinitiv"},
+            {"verb": "vestind", "form": "gerunziu"},
+            {"verb": "la pornit", "form": "supin"}
+          ],
+          "score": {
+            "value": 4,
+            "max": 6
+          }
+        },
+        {
+          "taskNumber": 6,
+          "correctAnswer": [
+            "Andrei are o minte sclipitoare.",
+            "Nu am emoții pentru testul de mâine."
+          ],
+          "score": {
+            "value": 6,
+            "max": 6
+          }
+        },
+        {
+          "taskNumber": 7,
+          "correctAnswer": [
+            {"sentence": "cum să-i port de cheltuială", "type": "atributivă"},
+            {"sentence": "căci banii nu se culeg de la trunchiu, ca surcelele", "type": "circumstanțială de cauză"}
+          ],
+          "score": {
+            "value": 3,
+            "max": 6
+          }
+        }
+      ],
+      "totalScore": {
+        "available": 32,
+        "obtained": 21
+      }
+    },
+    "finalScore": {
+      "obtained": 57,
+      "total": 100,
+      "percentage": 57
+    },
+    "summary": "A felhasználó válaszai részben helyesek. A teljes pontszám 57/100, ami 57%-os eredményt jelent.",
+    "recommendations": [
+      "Kérlek, nézd át a válaszaidat és ellenőrizd a szükséges információkat!",
+      "Figyelj jobban a konkrét információkra, például évszámokra és helyes válaszokra!",
+      "A válaszaid javításával tovább növelheted a pontszámod a következő alkalommal.",
+      "Szép munka! Így tovább!"
+    ]
+  }

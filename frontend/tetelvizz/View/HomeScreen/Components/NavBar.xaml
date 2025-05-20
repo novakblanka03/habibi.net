@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tetelvizz.View.HomeScreen.Components.NavBar">
+    <Grid BackgroundColor="#121217"
+          HeightRequest="70"
+          Padding="12,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Home Icon -->
+        <StackLayout Grid.Column="0"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Image Source="home.png"
+                   WidthRequest="24"
+                   HeightRequest="24"
+                   HorizontalOptions="Center" />
+            <Label Text="Kezdőlap"
+                   FontSize="10"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+
+        <!-- Favorite Icon -->
+        <StackLayout Grid.Column="1"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Image Source="favorite.png"
+                   WidthRequest="24"
+                   HeightRequest="24"
+                   HorizontalOptions="Center" />
+            <Label Text="Kedvencek"
+                   FontSize="10"
+                   TextColor="#A1A1AA"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+
+        <!-- Profile Icon -->
+        <StackLayout Grid.Column="2"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Image Source="profile.png"
+                   WidthRequest="24"
+                   HeightRequest="24"
+                   HorizontalOptions="Center" />
+            <Label Text="Profil"
+                   FontSize="10"
+                   TextColor="#A1A1AA"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </Grid>
+</ContentView>

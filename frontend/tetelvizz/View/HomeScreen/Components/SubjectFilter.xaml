@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tetelvizz.View.HomeScreen.Components.SubjectFilter">
+    <Frame x:Name="FilterFrame"
+           Padding="12,6"
+           CornerRadius="16"
+           HasShadow="False"
+           BackgroundColor="#27272A"
+           Margin="4">
+        <Label x:Name="TextLabel"
+               TextColor="White"
+               FontSize="14"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+    </Frame>
+</ContentView>
