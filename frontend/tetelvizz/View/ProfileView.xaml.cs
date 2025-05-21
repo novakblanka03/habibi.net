@@ -15,4 +15,10 @@ public partial class ProfileView : ContentPage
 
         BindingContext = profileViewModel;
     }
+    private void OnSearch(object sender, EventArgs e)
+    {
+        if (BindingContext is ProfileViewModel vm)
+            vm.SearchByCode();
+    }
+
 }

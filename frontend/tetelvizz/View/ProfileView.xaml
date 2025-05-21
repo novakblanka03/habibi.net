@@ -1,14 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:tetelvizz.Components"
              xmlns:viewModel="clr-namespace:tetelvizz.ViewModel"
              x:DataType="viewModel:ProfileViewModel"
-             x:Class="tetelvizz.View.ProfileView">
-    <StackLayout>
-        <components:CustomHeader />
-        <Label Text="Username:" FontSize="Medium" />
-        <Label Text="{Binding Username}" FontSize="Large" FontAttributes="Bold" />
-    </StackLayout>
+             x:Class="tetelvizz.View.ProfileView"
+             BackgroundColor="{StaticResource BACKGROUND_COLOR}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <components:CustomHeader Grid.Row="0" />
+
+        <!-- Main Content -->
+        <VerticalStackLayout Grid.Row="1"
+                             Padding="30"
+                             Spacing="20"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Start">
+
+            <!-- Username -->
+            <Label Text="{Binding Username}"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource DARK_GREEN_LETTER_COLOR}"
+                   HorizontalOptions="Center" />
+
+            <!-- Search bar -->
+            <SearchBar Placeholder="Kód keresése..."
+                       FontSize="18"
+                       Text="{Binding SearchCode, Mode=TwoWay}"
+                       SearchButtonPressed="OnSearch"
+                       TextColor="{StaticResource DARK_GREEN_LETTER_COLOR}"
+                       PlaceholderColor="{StaticResource LIGHT_GREY_COLOR}"
+                       WidthRequest="250"
+                       HorizontalOptions="Center"
+                       BackgroundColor="{StaticResource CARDS_COLOR}" />
+
+            <!-- Codes inputs -->
+            <VerticalStackLayout Spacing="10"
+                                 HorizontalOptions="Center">
+
+                <Label Text="8. osztály"
+                       FontSize="20"
+                       TextColor="{StaticResource DARK_GREEN_LETTER_COLOR}"
+                       HorizontalOptions="Center" />
+                <Entry Text="{Binding EighthGradeCode, Mode=TwoWay}"
+                       Placeholder="Pl. AB1244"
+                       FontSize="20"
+                       TextColor="{StaticResource DARK_GREEN_LETTER_COLOR}"
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="200" />
+
+                <Label Text="12. osztály"
+                       FontSize="20"
+                       TextColor="{StaticResource DARK_GREEN_LETTER_COLOR}"
+                       HorizontalOptions="Center" />
+                <Entry Text="{Binding TwelfthGradeCode, Mode=TwoWay}"
+                       Placeholder="Pl. XY9876"
+                       FontSize="20"
+                       TextColor="{StaticResource DARK_GREEN_LETTER_COLOR}"
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="200" />
+            </VerticalStackLayout>
+
+            <!-- Found student data -->
+            <VerticalStackLayout Spacing="5"
+                                 Padding="10"
+                                 WidthRequest="280"
+                                 BackgroundColor="{StaticResource CARDS_COLOR}"
+                                 IsVisible="{Binding FoundStudent, Converter={StaticResource NullToBoolConverter}}">
+                <Label Text="Eredmény:" FontAttributes="Bold" FontSize="18" />
+                <Label Text="{Binding FoundStudent.Name}" />
+                <Label Text="{Binding FoundStudent.SchoolName}" />
+                <Label Text="{Binding FoundStudent.Location}" />
+                <Label Text="{Binding FoundStudent.Avg}" />
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="40" Opacity="0" />
+
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

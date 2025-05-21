@@ -67,10 +67,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Model\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <MauiXaml Update="Components\CustomHeader.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
