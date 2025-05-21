@@ -3,7 +3,7 @@ const cors = require("cors");
 const fileRoutes = require("./src/files/routes");
 const { scrapeAllYears } = require("./src/scrape");
 const { AppDataSource } = require("./db");
-const {useOpenAi} = require("./src/openai-api.js")
+const {useOpenAi} = require("./openai-api.json")
 const fs = require("fs").promises;
 const userRoutes = require("./src/users/routes");
 
@@ -57,7 +57,7 @@ app.get("/evaluation", async (req, res) => {
 
 // app.get("/evaluated", async (req, res) => {
 //   try {
-//     const outputFile = "./src/output.txt"; 
+//     const outputFile = "./src/output.txt";
 //     const fileContent = await fs.readFile(outputFile, "utf-8");
 
 //     // let parsedJson;

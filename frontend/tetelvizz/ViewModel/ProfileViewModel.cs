@@ -67,7 +67,7 @@ namespace tetelvizz.ViewModel
             }
 
             FoundStudent = AllStudents.FirstOrDefault(s =>
-                s.SchoolCode.Equals(SearchCode.Trim(), StringComparison.OrdinalIgnoreCase));
+                s.SchoolCode.Equals(SearchCode.Trim(), StringComparison.OrdinalIgnoreCase)) ?? throw new InvalidOperationException();
         }
     }
 }

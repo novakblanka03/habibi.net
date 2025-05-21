@@ -1,0 +1,119 @@
+{
+  "partA": {
+    "tasks": [
+      {
+        "taskNumber": 1,
+        "correctAnswer": "1855, Humulești",
+        "suggestion": "Kérlek, adj meg más információkat, mint például a helyes évszámot és a szülőhelyet.",
+        "score": {
+          "value": 0,
+          "max": 2
+        }
+      },
+      {
+        "taskNumber": 2,
+        "correctAnswer": "b",
+        "suggestion": null,
+        "score": {
+          "value": 0,
+          "max": 2
+        }
+      },
+      {
+        "taskNumber": 3,
+        "correctAnswer": "b",
+        "suggestion": null,
+        "score": {
+          "value": 0,
+          "max": 2
+        }
+      },
+      {
+        "taskNumber": 4,
+        "correctAnswer": "d",
+        "suggestion": null,
+        "score": {
+          "value": 0,
+          "max": 2
+        }
+      },
+      {
+        "taskNumber": 5,
+        "correctAnswer": "Textul 1; textul 2",
+        "suggestion": "Kérlek, javítsd ki a válaszaidat a helyes értékelésekkel és ne válassz nullát az igaz/félre értékelésnél.",
+        "score": {
+          "value": 0,
+          "max": 6
+        }
+      }
+    ],
+    "textEvaluations": [
+      {
+        "textNumber": 1,
+        "evaluations": [
+          {
+            "statementNumber": 1,
+            "userAnswer": "Adevarat",
+            "correctAnswer": "Adevărat",
+            "isCorrect": true
+          },
+          {
+            "statementNumber": 2,
+            "userAnswer": "Fals",
+            "correctAnswer": "Fals",
+            "isCorrect": true
+          },
+          {
+            "statementNumber": 3,
+            "userAnswer": "Adevarat",
+            "correctAnswer": "Adevărat",
+            "isCorrect": true
+          },
+          {
+            "statementNumber": 4,
+            "userAnswer": "Fals",
+            "correctAnswer": "Fals",
+            "isCorrect": false
+          },
+          {
+            "statementNumber": 5,
+            "userAnswer": "Fals",
+            "correctAnswer": "Fals",
+            "isCorrect": false
+          }
+        ],
+        "score": {
+          "value": 8,
+          "max": 10
+        }
+      },
+      {
+        "textNumber": 2,
+        "evaluations": [],
+        "score": {
+          "value": 0,
+          "max": 0
+        }
+      }
+    ],
+    "totalScore": {
+      "available": 100,
+      "obtained": 8
+    }
+  },
+  "partB": {
+    "provided": false,
+    "totalScore": null
+  },
+  "finalScore": {
+    "obtained": 8,
+    "total": 100,
+    "percentage": 8
+  },
+  "summary": "A válaszod több kérdésben pontatlan volt, és a szövegértési feladat kijavítására is szükség lesz.",
+  "recommendations": [
+    "Kérjük, nézd át újra a kérdéseket és a kapcsolódó szöveget, hogy megtudd a helyes válaszokat!",
+    "A megoldások során figyelj a részletekre, például a szövegbeli évszámokra és helyekre.",
+    "A következő alkalommal próbálj meg pontosabb, részletesebb válaszokat adni."
+  ]
+}
