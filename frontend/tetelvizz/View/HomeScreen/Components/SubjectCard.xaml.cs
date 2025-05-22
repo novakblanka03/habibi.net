@@ -1,55 +1,65 @@
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 
 namespace tetelvizz.View.HomeScreen.Components;
 public partial class SubjectCard : ContentView
 {
+    public static readonly BindableProperty ExamFileProperty =
+        BindableProperty.Create(nameof(ExamFile), typeof(ExamFile), typeof(SubjectCard), propertyChanged: OnExamFileChanged);
+
+    public ExamFile ExamFile
+    {
+        get => (ExamFile)GetValue(ExamFileProperty);
+        set => SetValue(ExamFileProperty, value);
+    }
+
     public SubjectCard()
     {
         InitializeComponent();
     }
 
-    public static readonly BindableProperty TitleProperty =
-        BindableProperty.Create(nameof(Title), typeof(string), typeof(SubjectCard), string.Empty, propertyChanged: OnTitleChanged);
-
-    public static readonly BindableProperty SubtitleProperty =
-        BindableProperty.Create(nameof(Subtitle), typeof(string), typeof(SubjectCard), string.Empty, propertyChanged: OnSubtitleChanged);
-
-    public static readonly BindableProperty ExamTypeProperty =
-        BindableProperty.Create(nameof(ExamType), typeof(string), typeof(SubjectCard), string.Empty, propertyChanged: OnExamTypeChanged);
-
-    public string Title
-    {
-        get => (string)GetValue(TitleProperty);
-        set => SetValue(TitleProperty, value);
-    }
-
-    public string Subtitle
-    {
-        get => (string)GetValue(SubtitleProperty);
-        set => SetValue(SubtitleProperty, value);
-    }
-
-    public string ExamType
-    {
-        get => (string)GetValue(ExamTypeProperty);
-        set => SetValue(ExamTypeProperty, value);
-    }
-
-    private static void OnTitleChanged(BindableObject bindable, object oldValue, object newValue)
+    private static void OnExamFileChanged(BindableObject bindable, object oldValue, object newValue)
     {
         var control = (SubjectCard)bindable;
-        control.TitleLabel.Text = (string)newValue;
+        control.UpdateUI();
     }
 
-    private static void OnSubtitleChanged(BindableObject bindable, object oldValue, object newValue)
+    private void UpdateUI()
     {
-        var control = (SubjectCard)bindable;
-        control.SubtitleLabel.Text = (string)newValue;
+        if (ExamFile == null)
+            return;
+
+        string examType = ExamFile.ExamType;
+        string imagePath = examType == "BAC" ? "bac_placeholder.png" : "en_placeholder.png";
+
+        // Képet és szöveget beállítani
+        SubjectImage.Source = imagePath;
+
+        var subjectNames = new Dictionary<string, string>
+        {
+            {"ea_limba_si_literatura_romana", "Román nyelv és irodalom"},
+            {"eb_limba_si_literatura_materna", "Anyanyelv és irodalom"},
+            {"ec_matematica", "Matematika"},
+            {"ec_istorie", "Történelem"},
+            {"ed_anatomie_biologie", "Anatómia és biológia"},
+            {"ed_chimie", "Kémia"},
+            {"ed_fizica", "Fizika"},
+            {"ed_geografie", "Földrajz"},
+            {"ed_informatica", "Informatika"},
+            {"ed_socioumane", "Társadalomtudományok"},
+            {"limba_si_literatura_romana", "Román nyelv és irodalom"},
+            {"matematica", "Matematika"},
+            {"limba_si_literatura_materna", "Anyanyelv és irodalom"}
+        };
+
+        SubjectLabel.Text = $"{subjectNames.GetValueOrDefault(ExamFile.Subject, "Ismeretlen tantárgy")} - Model {ExamFile.Year}";
+        DurationLabel.Text = "180 min"; // Ha dinamikus, ezt módosítsd!
     }
 
-    private static void OnExamTypeChanged(BindableObject bindable, object oldValue, object newValue)
+    private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
-        var control = (SubjectCard)bindable;
-        control.ExamTypeLabel.Text = (string)newValue;
+        // Navigáció PDF megjelenítőhöz
+        // Ehhez használd Shell-nél a navigációt vagy a NavigationPage-t
+        // Pl.:
+        // await Shell.Current.GoToAsync($"pdfviewer?id={ExamFile.Id}&baremId={ExamFile.BaremId}");
     }
 }

@@ -5,7 +5,7 @@ using System.Windows.Input;
 using tetelvizz.Models;
 using tetelvizz.Services;
 
-namespace MyApp.ViewModels;
+namespace tetelvizz.ViewModel;
 
 public class HomeViewModel : INotifyPropertyChanged
 {
@@ -72,17 +72,17 @@ public class HomeViewModel : INotifyPropertyChanged
 
     public HomeViewModel(FileService fileService)
     {
-        _fileService = fileService;
-
+        _fileService = new FileService();
         _allFiles = _fileService.GetAllFiles();
         FilteredFiles = new ObservableCollection<SubjectFile>(_allFiles);
-
         RefreshCommand = new Command(() =>
         {
             _allFiles = _fileService.GetAllFiles();
             ApplyFilters();
         });
+        _fileService = fileService;
     }
+
 
     private void ApplyFilters()
     {

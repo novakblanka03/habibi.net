@@ -74,10 +74,10 @@
       <MauiXaml Update="Components\CustomHeader.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
-      <MauiXaml Update="View\HomeScreen\Components\CustomAppBar.xaml">
+      <MauiXaml Update="View\HomeScreen\Components\EvaluareBacButton.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
-      <MauiXaml Update="View\HomeScreen\Components\EvaluareBacButton.xaml">
+      <MauiXaml Update="View\HomeScreen\Components\CustomAppBar.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="View\HomeScreen\Components\SubjectFilter.xaml">
@@ -89,9 +89,6 @@
       <MauiXaml Update="View\HomeScreen\Components\SearchBar.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
-      <MauiXaml Update="View\HomeScreen\Components\NavBar.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
@@ -99,11 +96,11 @@
         <DependentUpon>CustomHeader.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
-      <Compile Update="View\HomeScreen\Components\CustomAppBar.xaml.cs">
-        <DependentUpon>CustomAppBar.xaml</DependentUpon>
-      </Compile>
       <Compile Update="View\HomeScreen\Components\EvaluareBacButton.xaml.cs">
         <DependentUpon>EvaluareBacButton.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="View\HomeScreen\Components\CustomAppBar.xaml.cs">
+        <DependentUpon>CustomAppBar.xaml</DependentUpon>
       </Compile>
       <Compile Update="View\HomeScreen\Components\SubjectFilter.xaml.cs">
         <DependentUpon>SubjectFilter.xaml</DependentUpon>
@@ -113,9 +110,6 @@
       </Compile>
       <Compile Update="View\HomeScreen\Components\SearchBar.xaml.cs">
         <DependentUpon>SearchBar.xaml</DependentUpon>
-      </Compile>
-      <Compile Update="View\HomeScreen\Components\NavBar.xaml.cs">
-        <DependentUpon>NavBar.xaml</DependentUpon>
       </Compile>
       <Compile Update="View\HomeScreen\HomeView.xaml.cs">
         <DependentUpon>HomeView.xaml</DependentUpon>

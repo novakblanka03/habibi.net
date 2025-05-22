@@ -6,9 +6,6 @@
              xmlns:vm="clr-namespace:tetelvizz.ViewModel"
              x:Class="tetelvizz.View.HomeView"
              BackgroundColor="#121217">
-    <ContentPage.BindingContext>
-        <vm:HomeViewModel />
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
@@ -27,23 +24,17 @@
                     <components:EvaluareBacButton />
                     <components:SubjectFilter />
 
-                     <!-- List -->
-                    <CollectionView ItemsSource="{Binding Files}" Margin="0,8,0,0"
-                                    EmptyView="Nincs megjeleníthető fájl">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical" Span="2" />
-                        </CollectionView.ItemsLayout>
+                    <!-- List -->
+                    <CollectionView ItemsSource="{Binding Files}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <components:SubjectCard />
+                                <components:SubjectCard ExamFile="{Binding .}" />
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
-                    </CollectionView> 
+                    </CollectionView>
+                    
                 </VerticalStackLayout>
             </ScrollView>
-
-            <!-- Bottom Navigation Bar -->
-            <components:NavBar Grid.Row="2"/>  
         </Grid>
     </ContentPage.Content>
 </ContentPage>

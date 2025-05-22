@@ -2,33 +2,30 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="tetelvizz.View.HomeScreen.Components.SearchBar">
-    <Frame BackgroundColor="#1E1E24"
-           CornerRadius="12"
-           Padding="12"
-           HasShadow="False"
-           Margin="16,0"
-           HeightRequest="48">
-        <Grid ColumnSpacing="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+    <Grid>
+        <Frame
+        Padding="0"
+        HasShadow="False"
+        CornerRadius="12"
+        BackgroundColor="#1E1E1E"
+        BorderColor="Transparent">
 
-            <!-- Search Icon -->
-            <Image Source="search.png"
-                   WidthRequest="20"
-                   HeightRequest="20"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center" />
+            <HorizontalStackLayout Padding="10,5">
+                <Image
+                Source="search.png"
+                HeightRequest="20"
+                WidthRequest="20"
+                Margin="0,0,8,0"
+                VerticalOptions="Center"
+                Opacity="0.5" />
 
-            <!-- Input Field -->
-            <Entry Grid.Column="1"
-                   Placeholder="Keresés..."
-                   PlaceholderColor="#A1A1AA"
-                   TextColor="White"
-                   FontSize="14"
-                   BackgroundColor="Transparent"
-                   VerticalOptions="Center" />
-        </Grid>
-    </Frame>
+                <Entry
+                Placeholder="Tételek keresése"
+                TextColor="White"
+                PlaceholderColor="Gray"
+                BackgroundColor="Transparent"
+                FontSize="14" />
+            </HorizontalStackLayout>
+        </Frame>
+    </Grid>
 </ContentView>
