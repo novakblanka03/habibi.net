@@ -1,65 +1,69 @@
 ﻿using Microsoft.Maui.Controls;
 
-namespace tetelvizz.View.HomeScreen.Components;
-public partial class SubjectCard : ContentView
+//namespace tetelvizz.View.HomeScreen.Components;
+using tetelvizz.Helpers;
+using tetelvizz.Models;
+
+namespace tetelvizz.View.HomeScreen.Components
 {
-    public static readonly BindableProperty ExamFileProperty =
-        BindableProperty.Create(nameof(ExamFile), typeof(ExamFile), typeof(SubjectCard), propertyChanged: OnExamFileChanged);
-
-    public ExamFile ExamFile
+    public partial class SubjectCard : ContentView
     {
-        get => (ExamFile)GetValue(ExamFileProperty);
-        set => SetValue(ExamFileProperty, value);
-    }
-
-    public SubjectCard()
-    {
-        InitializeComponent();
-    }
-
-    private static void OnExamFileChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-        var control = (SubjectCard)bindable;
-        control.UpdateUI();
-    }
-
-    private void UpdateUI()
-    {
-        if (ExamFile == null)
-            return;
-
-        string examType = ExamFile.ExamType;
-        string imagePath = examType == "BAC" ? "bac_placeholder.png" : "en_placeholder.png";
-
-        // Képet és szöveget beállítani
-        SubjectImage.Source = imagePath;
-
-        var subjectNames = new Dictionary<string, string>
+        public SubjectCard()
         {
-            {"ea_limba_si_literatura_romana", "Román nyelv és irodalom"},
-            {"eb_limba_si_literatura_materna", "Anyanyelv és irodalom"},
-            {"ec_matematica", "Matematika"},
-            {"ec_istorie", "Történelem"},
-            {"ed_anatomie_biologie", "Anatómia és biológia"},
-            {"ed_chimie", "Kémia"},
-            {"ed_fizica", "Fizika"},
-            {"ed_geografie", "Földrajz"},
-            {"ed_informatica", "Informatika"},
-            {"ed_socioumane", "Társadalomtudományok"},
-            {"limba_si_literatura_romana", "Román nyelv és irodalom"},
-            {"matematica", "Matematika"},
-            {"limba_si_literatura_materna", "Anyanyelv és irodalom"}
-        };
+            //InitializeComponent();
+            BindingContext = this;
+        }
 
-        SubjectLabel.Text = $"{subjectNames.GetValueOrDefault(ExamFile.Subject, "Ismeretlen tantárgy")} - Model {ExamFile.Year}";
-        DurationLabel.Text = "180 min"; // Ha dinamikus, ezt módosítsd!
+        public static readonly BindableProperty IdProperty =
+            BindableProperty.Create(nameof(Id), typeof(int), typeof(SubjectCard), 0);
+
+        public int Id
+        {
+            get => (int)GetValue(IdProperty);
+            set => SetValue(IdProperty, value);
+        }
+
+        public static readonly BindableProperty YearProperty =
+            BindableProperty.Create(nameof(Year), typeof(int), typeof(SubjectCard), 0);
+
+        public int Year
+        {
+            get => (int)GetValue(YearProperty);
+            set => SetValue(YearProperty, value);
+        }
+
+        public static readonly BindableProperty BaremIdProperty =
+            BindableProperty.Create(nameof(BaremId), typeof(int), typeof(SubjectCard), 0);
+
+        public int BaremId
+        {
+            get => (int)GetValue(BaremIdProperty);
+            set => SetValue(BaremIdProperty, value);
+        }
+
+        public static readonly BindableProperty SubjectProperty =
+            BindableProperty.Create(nameof(Subject), typeof(string), typeof(SubjectCard), "");
+
+        public string Subject
+        {
+            get => (string)GetValue(SubjectProperty);
+            set
+            {
+                SetValue(SubjectProperty, value);
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+
+        //public string ImagePath =>
+            //FileProvider.Instance.ExamType == "BAC" ? "bac_placeholder.png" : "en_placeholder.png";
+
+        public string Title =>
+            $"{SubjectNames.GetName(Subject)} - Model {Year}";
+
+        public Command TapCommand => new Command(async () =>
+        {
+            await Shell.Current.GoToAsync($"pdfviewer?fileId={Id}&baremId={BaremId}");
+        });
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-    {
-        // Navigáció PDF megjelenítőhöz
-        // Ehhez használd Shell-nél a navigációt vagy a NavigationPage-t
-        // Pl.:
-        // await Shell.Current.GoToAsync($"pdfviewer?id={ExamFile.Id}&baremId={ExamFile.BaremId}");
-    }
 }

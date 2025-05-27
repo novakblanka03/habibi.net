@@ -1,43 +1,42 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using tetelvizz.Models;
-using tetelvizz.Services;
+//using tetelvizz.Services;
 
 namespace tetelvizz.ViewModel;
 
-public class HomeViewModel : INotifyPropertyChanged
+public class HomeViewModel : BaseViewModel
 {
-    private readonly FileService _fileService;
+    private bool _isBacSelected = true;
+    private string _selectedSubject;
+    private ObservableCollection<ExamFile> _allFiles;
+    private ObservableCollection<ExamFile> _files;
 
-    private ObservableCollection<SubjectFile> _allFiles;
-    private ObservableCollection<SubjectFile> _filteredFiles;
-    private string _searchQuery = string.Empty;
-    private string _selectedSubject = "�sszes";
-
-    public ObservableCollection<SubjectFile> FilteredFiles
+    public HomeViewModel()
     {
-        get => _filteredFiles;
-        set
+        SelectBacCommand = new Command(() =>
         {
-            _filteredFiles = value;
-            OnPropertyChanged();
-        }
+            IsBacSelected = true;
+            FilterFiles();
+        });
+
+        SelectCapacitateCommand = new Command(() =>
+        {
+            IsBacSelected = false;
+            FilterFiles();
+        });
+
+        // Töltsd fel az összes fájlt (demo)
+        _allFiles = new ObservableCollection<ExamFile>(GetAllFiles());
+        FilterFiles();
     }
 
-    public string SearchQuery
+    public bool IsBacSelected
     {
-        get => _searchQuery;
-        set
-        {
-            if (_searchQuery != value)
-            {
-                _searchQuery = value;
-                OnPropertyChanged();
-                ApplyFilters();
-            }
-        }
+        get => _isBacSelected;
+        set => SetProperty(ref _isBacSelected, value);
     }
 
     public string SelectedSubject
@@ -45,64 +44,142 @@ public class HomeViewModel : INotifyPropertyChanged
         get => _selectedSubject;
         set
         {
-            if (_selectedSubject != value)
-            {
-                _selectedSubject = value;
-                OnPropertyChanged();
-                ApplyFilters();
-            }
+            SetProperty(ref _selectedSubject, value);
+            FilterFiles();
         }
     }
 
-    public ObservableCollection<string> Subjects { get; } = new ObservableCollection<string>
+    public ObservableCollection<ExamFile> Files
     {
-        "�sszes",
-        "Matematika",
-        "Magyar",
-        "T�rt�nelem",
-        "Fizika",
-        "K�mia",
-        "Biol�gia",
-        "Informatika"
-    };
-
-    public ICommand RefreshCommand { get; }
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    public HomeViewModel(FileService fileService)
-    {
-        _fileService = new FileService();
-        _allFiles = _fileService.GetAllFiles();
-        FilteredFiles = new ObservableCollection<SubjectFile>(_allFiles);
-        RefreshCommand = new Command(() =>
-        {
-            _allFiles = _fileService.GetAllFiles();
-            ApplyFilters();
-        });
-        _fileService = fileService;
+        get => _files;
+        set => SetProperty(ref _files, value);
     }
 
+    public ICommand SelectBacCommand { get; }
+    public ICommand SelectCapacitateCommand { get; }
 
-    private void ApplyFilters()
+    private void FilterFiles()
     {
-        IEnumerable<SubjectFile> filtered = _allFiles;
+        if (_allFiles == null)
+            return;
 
-        if (SelectedSubject != "�sszes")
-        {
-            filtered = filtered.Where(f => f.Subject == SelectedSubject);
-        }
+        var filtered = _allFiles.Where(f =>
+            f.Type == (IsBacSelected ? "bac" : "capacitate") &&
+            (string.IsNullOrEmpty(SelectedSubject) || f.Subject == SelectedSubject));
 
-        if (!string.IsNullOrWhiteSpace(SearchQuery))
-        {
-            filtered = filtered.Where(f => f.Title.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase));
-        }
-
-        FilteredFiles = new ObservableCollection<SubjectFile>(filtered);
+        Files = new ObservableCollection<ExamFile>(filtered);
     }
 
-    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    private IEnumerable<ExamFile> GetAllFiles()
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        return new List<ExamFile>
+        {
+            new ExamFile { Title = "Román nyelv Model 2025", Duration = 180, Type = "bac", Subject = "Román nyelv és irodalom" },
+            new ExamFile { Title = "Román nyelv Capacitate", Duration = 120, Type = "capacitate", Subject = "Román nyelv és irodalom" }
+        };
     }
 }
+
+
+//public class HomeViewModel : INotifyPropertyChanged
+//{
+//    private readonly FileService _fileService;
+//    private ObservableCollection<SubjectFile> _allFiles;
+//    private ObservableCollection<SubjectFile> _filteredFiles;
+//    private string _searchQuery = string.Empty;
+//    private string _selectedSubject = string.Empty;
+//    private bool _isBacSelected = true;
+
+//    public ObservableCollection<SubjectFile> FilteredFiles
+//    {
+//        get => _filteredFiles;
+//        set
+//        {
+//            _filteredFiles = value;
+//            OnPropertyChanged();
+//        }
+//    }
+
+//    public string SearchQuery
+//    {
+//        get => _searchQuery;
+//        set
+//        {
+//            if (_searchQuery != value)
+//            {
+//                _searchQuery = value;
+//                OnPropertyChanged();
+//                ApplyFilters();
+//            }
+//        }
+//    }
+
+//    public string SelectedSubject
+//    {
+//        get => _selectedSubject;
+//        set
+//        {
+//            if (_selectedSubject != value)
+//            {
+//                _selectedSubject = value;
+//                OnPropertyChanged();
+//                ApplyFilters();
+//            }
+//        }
+//    }
+
+//    public bool IsBacSelected
+//    {
+//        get => _isBacSelected;
+//        set
+//        {
+//            if (_isBacSelected != value)
+//            {
+//                _isBacSelected = value;
+//                OnPropertyChanged();
+//                ApplyFilters();
+//            }
+//        }
+//    }
+
+//    public ICommand RefreshCommand { get; }
+
+//    public event PropertyChangedEventHandler? PropertyChanged;
+
+//    public HomeViewModel(FileService fileService)
+//    {
+//        _fileService = fileService;
+//        _allFiles = _fileService.GetAllFiles();
+//        _filteredFiles = new ObservableCollection<SubjectFile>(_allFiles);
+//        RefreshCommand = new Command(() =>
+//        {
+//            _allFiles = _fileService.GetAllFiles();
+//            ApplyFilters();
+//        });
+
+//        // Kezdőérték lehet pl. az első BAC tantárgy
+//        SelectedSubject = "ec_matematica";
+//    }
+
+//    private void ApplyFilters()
+//    {
+//        IEnumerable<SubjectFile> filtered = _allFiles;
+
+//        if (!string.IsNullOrWhiteSpace(SelectedSubject))
+//        {
+//            filtered = filtered.Where(f => f.Subject == SelectedSubject);
+//        }
+
+//        if (!string.IsNullOrWhiteSpace(SearchQuery))
+//        {
+//            filtered = filtered.Where(f => f.Title.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase));
+//        }
+
+//        FilteredFiles = new ObservableCollection<SubjectFile>(filtered);
+//    }
+
+//    protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+//    {
+//        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+//    }
+//}

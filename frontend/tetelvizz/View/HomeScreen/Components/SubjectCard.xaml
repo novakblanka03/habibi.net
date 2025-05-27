@@ -2,6 +2,33 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="tetelvizz.View.HomeScreen.Components.SubjectCard">
+    <Frame CornerRadius="12"
+       BackgroundColor="#212121"
+       Padding="12"
+       Margin="0,0,0,12">
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding TapCommand}" />
+        </Frame.GestureRecognizers>
+
+        <VerticalStackLayout>
+            <Image Source="{Binding ImagePath}" />
+            <Label Text="{Binding Title}"
+               FontAttributes="Bold"
+               TextColor="#8AD195"
+               FontSize="15"
+               Margin="0,8,0,0"/>
+            <HorizontalStackLayout>
+                <Image Source="time_icon.png" WidthRequest="16" HeightRequest="16"/>
+                <Label Text="180 min" TextColor="White" Margin="4,0,0,0"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Frame>
+
+</ContentView>
+
+<!-- <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tetelvizz.View.HomeScreen.Components.SubjectCard">
     <Frame BackgroundColor="#121212" CornerRadius="12" Padding="12" Margin="0,0,0,12" HasShadow="True">
     <StackLayout>
         <Image x:Name="SubjectImage" HeightRequest="120" Aspect="AspectFill"/>
@@ -17,4 +44,4 @@
         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
     </ContentView.GestureRecognizers>
 
-</ContentView>
+</ContentView> -->

@@ -22,16 +22,18 @@
                 <VerticalStackLayout Padding="16" Spacing="16">
                     <components:SearchBar />
                     <components:EvaluareBacButton />
-                    <components:SubjectFilter />
+                    <components:SubjectFilter
+                    SelectedSubject="{Binding SelectedSubject}"
+                    IsBacSelected="{Binding IsBacSelected}" />
 
                     <!-- List -->
-                    <CollectionView ItemsSource="{Binding Files}">
+                    <!--<CollectionView ItemsSource="{Binding Files}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <components:SubjectCard ExamFile="{Binding .}" />
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
-                    </CollectionView>
+                    </CollectionView> -->
                     
                 </VerticalStackLayout>
             </ScrollView>

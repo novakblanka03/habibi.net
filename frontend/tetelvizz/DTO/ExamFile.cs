@@ -1,9 +1,7 @@
 ﻿public class ExamFile
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
+    public string Title { get; set; }
+    public int Duration { get; set; }
+    public string Type { get; set; } // "bac" vagy "capacitate"
     public string Subject { get; set; }
-    public int Year { get; set; }
-    public string ExamType { get; set; }
-    public int BaremId { get; set; }
 }

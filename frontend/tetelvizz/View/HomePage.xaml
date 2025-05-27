@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tetelvizz.View.HomePage"
+             BackgroundColor="#111111"
+             Title="Tételezz!">
+
+    <Grid RowDefinitions="Auto, *, Auto">
+        <!-- Fejléc -->
+        <VerticalStackLayout Padding="20,40,20,10" Spacing="10">
+            <Image Source="logo.png" HeightRequest="40" HorizontalOptions="Center" />
+            <Label Text="TÉTELEZZ!" FontSize="24" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" />
+        </VerticalStackLayout>
+
+        <!-- Kereső és szűrők -->
+        <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="15">
+            <SearchBar Placeholder="Tételek keresése" BackgroundColor="#222" PlaceholderColor="#888" TextColor="White" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Képességvizsga"
+                        BackgroundColor="#555"
+                        TextColor="White"
+                        CornerRadius="20"
+                        Padding="10,5"/>
+                <Button Text="Érettségi"
+                        BackgroundColor="#3CB371"
+                        TextColor="White"
+                        CornerRadius="20"
+                        Padding="10,5"/>
+            </HorizontalStackLayout>
+
+            <Frame BackgroundColor="#222"
+                   CornerRadius="10"
+                   Padding="10"
+                   HasShadow="False">
+                <Label Text="Román nyelv és irodalom" TextColor="#80FFD4" FontSize="16" />
+            </Frame>
+
+            <!-- Tételek listája -->
+            <ScrollView>
+                <VerticalStackLayout Spacing="15">
+                    <!-- Ismétlődő tétel-kártyák -->
+                    <Frame BackgroundColor="#1E1E1E"
+                           CornerRadius="15"
+                           Padding="10"
+                           HasShadow="True">
+                        <VerticalStackLayout Spacing="5">
+                            <Image Source="en_placeholder.png" Aspect="AspectFit" HeightRequest="100"/>
+                            <Label Text="Román nyelv és irodalom - Model 2025"
+                                   TextColor="#90EE90"
+                                   FontSize="16"
+                                   FontAttributes="Bold"/>
+                            <HorizontalStackLayout Spacing="5">
+                                <Image Source="clock_icon.png" WidthRequest="16" HeightRequest="16"/>
+                                <Label Text="180 min" TextColor="White" FontSize="14"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Másolat ismétléshez -->
+                    <Frame BackgroundColor="#1E1E1E"
+                           CornerRadius="15"
+                           Padding="10"
+                           HasShadow="True">
+                        <VerticalStackLayout Spacing="5">
+                            <Image Source="en_placeholder.png" Aspect="AspectFit" HeightRequest="100"/>
+                            <Label Text="Román nyelv és irodalom - Model 2025"
+                                   TextColor="#90EE90"
+                                   FontSize="16"
+                                   FontAttributes="Bold"/>
+                            <HorizontalStackLayout Spacing="5">
+                                <Image Source="clock_icon.png" WidthRequest="16" HeightRequest="16"/>
+                                <Label Text="180 min" TextColor="White" FontSize="14"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+                </VerticalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+
+        <!-- Alsó navigáció -->
+        <Grid Grid.Row="2" BackgroundColor="#1A1A1A" Padding="10,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                <Image Source="home_icon.png" HeightRequest="24" />
+                <Label Text="Főoldal" FontSize="12" TextColor="#90EE90"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                <Image Source="document_icon.png" HeightRequest="24" />
+                <Label Text="Megoldott tételek" FontSize="12" TextColor="White"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                <Image Source="profile_icon.png" HeightRequest="24" />
+                <Label Text="Profil" FontSize="12" TextColor="White"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

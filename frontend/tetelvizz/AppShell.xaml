@@ -8,16 +8,25 @@
     Shell.FlyoutBehavior="Disabled"
     Title="tetelvizz">
 
-    <ShellContent Route="LoginView" ContentTemplate="{DataTemplate views:LoginView}" />
-    <ShellContent Route="RegisterView" ContentTemplate="{DataTemplate views:RegisterView}" />
-
     <TabBar Route="TabNavigator">
         <Tab Title="Home" Icon="home_icon.png">
-            <ShellContent Route="HomeView" ContentTemplate="{DataTemplate views:HomeView}" />
+            <ShellContent Route="HomePage" ContentTemplate="{DataTemplate views:HomePage}" />
         </Tab>
         <Tab Title="Profile" Icon="user_icon.png">
             <ShellContent Route="ProfileView" ContentTemplate="{DataTemplate views:ProfileView}" />
         </Tab>
     </TabBar>
+
+    <ShellContent Route="LoginView" ContentTemplate="{DataTemplate views:LoginView}" />
+    <ShellContent Route="RegisterView" ContentTemplate="{DataTemplate views:RegisterView}" />
+
+    <!--<TabBar Route="TabNavigator">
+        <Tab Title="Home" Icon="home_icon.png">
+            <ShellContent Route="HomePage" ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+        <Tab Title="Profile" Icon="user_icon.png">
+            <ShellContent Route="ProfileView" ContentTemplate="{DataTemplate views:ProfileView}" />
+        </Tab>
+    </TabBar> -->
 
 </Shell>

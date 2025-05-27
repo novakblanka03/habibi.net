@@ -16,7 +16,7 @@ public partial class App : Application
         var shell = new AppShell();
         var window = new Window(shell);
 
-        shell.Dispatcher.Dispatch(async () => { await Shell.Current.GoToAsync("//HomeView"); });
+        //shell.Dispatcher.Dispatch(async () => { await Shell.Current.GoToAsync("/HomePage"); });
 
         return window;
     }

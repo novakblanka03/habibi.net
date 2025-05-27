@@ -89,6 +89,9 @@
       <MauiXaml Update="View\HomeScreen\Components\SearchBar.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
+      <MauiXaml Update="View\HomePage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
@@ -113,6 +116,9 @@
       </Compile>
       <Compile Update="View\HomeScreen\HomeView.xaml.cs">
         <DependentUpon>HomeView.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="View\HomePage.xaml.cs">
+        <DependentUpon>HomePage.xaml</DependentUpon>
       </Compile>
     </ItemGroup>
 
